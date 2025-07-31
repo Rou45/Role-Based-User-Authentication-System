@@ -11,11 +11,11 @@ services:
       - key: JWT_SECRET
         value: 112233@rou
       - key: DB_HOST
-        value: <your-mysql-host>
+        value: localhost          
       - key: DB_USER
         value: root
       - key: DB_PASSWORD
-        value: <your-mysql-password>
+        value: 112233@rou
       - key: DB_NAME
         value: coplur_auth
 
