@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: coplur-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm run dev
+    rootDir: backend
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        value: 112233@rou
+      - key: DB_HOST
+        value: <your-mysql-host>
+      - key: DB_USER
+        value: root
+      - key: DB_PASSWORD
+        value: <your-mysql-password>
+      - key: DB_NAME
+        value: coplur_auth
+
+  - type: static
+    name: coplur-frontend
+    rootDir: frontend
+    buildCommand: ""
+    staticPublishPath: frontend
