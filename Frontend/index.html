@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPLUR Authentication System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar hidden" id="navbar">
+        <div class="container flex justify-between items-center">
+            <div class="navbar-brand">
+                <h3>COPLUR System</h3>
+            </div>
+            <div class="navbar-actions flex items-center gap-16">
+                <span id="currentUser" class="navbar-user"></span>
+                <button class="btn btn--outline btn--sm" id="changePasswordBtn">Change Password</button>
+                <button class="btn btn--secondary btn--sm" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <!-- Login Page -->
+        <div class="page active" id="loginPage">
+            <div class="auth-container">
+                <div class="card auth-card">
+                    <div class="card__body">
+                        <h2 class="auth-title">Login to COPLUR</h2>
+                        <form id="loginForm" class="auth-form">
+                            <div class="form-group">
+                                <label class="form-label" for="loginUsername">Username</label>
+                                <input type="text" id="loginUsername" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                            </div>
+                        </form>
+                        <div class="auth-footer">
+                            <p>Don't have an account? <a href="#" id="showRegisterBtn">Register as Student</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Page -->
+        <div class="page" id="registerPage">
+            <div class="auth-container">
+                <div class="card auth-card">
+                    <div class="card__body">
+                        <h2 class="auth-title">Student Registration</h2>
+                        <form id="registerForm" class="auth-form">
+                            <div class="form-group">
+                                <label class="form-label" for="registerUsername">Username</label>
+                                <input type="text" id="registerUsername" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="registerPassword">Password</label>
+                                <input type="password" id="registerPassword" class="form-control" required>
+                                <div class="password-requirements">
+                                    <small>Password must be at least 8 characters with uppercase, lowercase, number, and special character</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn--primary btn--full-width">Register</button>
+                            </div>
+                        </form>
+                        <div class="auth-footer">
+                            <p>Already have an account? <a href="#" id="showLoginBtn">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div class="page" id="adminDashboard">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h1>Admin Dashboard</h1>
+                    <button class="btn btn--primary" id="showCreateUserBtn">Create New User</button>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <h3>User Management</h3>
+                        <div class="table-container">
+                            <table class="users-table" id="usersTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Role</th>
+                                        <th>Created Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Welcome Page -->
+        <div class="page" id="studentWelcome">
+            <div class="container">
+                <div class="welcome-container">
+                    <div class="card">
+                        <div class="card__body">
+                            <h1>Welcome, Student!</h1>
+                            <p>You have successfully logged into the COPLUR system. This is your personalized student dashboard.</p>
+                            <div class="status status--success">
+                                <span>✓ Account Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password Page -->
+        <div class="page" id="changePasswordPage">
+            <div class="auth-container">
+                <div class="card auth-card">
+                    <div class="card__body">
+                        <h2 class="auth-title">Change Password</h2>
+                        <form id="changePasswordForm" class="auth-form">
+                            <div class="form-group">
+                                <label class="form-label" for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" class="form-control" required>
+                                <div class="password-requirements">
+                                    <small>Password must be at least 8 characters with uppercase, lowercase, number, and special character</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="confirmNewPassword">Confirm New Password</label>
+                                <input type="password" id="confirmNewPassword" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn--primary btn--full-width">Change Password</button>
+                            </div>
+                        </form>
+                        <div class="auth-footer">
+                            <p><a href="#" id="cancelChangePasswordBtn">Cancel</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create User Modal -->
+    <div class="modal hidden" id="createUserModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New User</h3>
+                <button class="modal-close" id="closeCreateUserModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="createUserForm">
+                    <div class="form-group">
+                        <label class="form-label" for="newUsername">Username</label>
+                        <input type="text" id="newUsername" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="newUserPassword">Password</label>
+                        <input type="password" id="newUserPassword" class="form-control" required>
+                        <div class="password-requirements">
+                            <small>Password must be at least 8 characters with uppercase, lowercase, number, and special character</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="newUserRole">Role</label>
+                        <select id="newUserRole" class="form-control" required>
+                            <option value="">Select Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn--primary btn--full-width">Create User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div class="message-container" id="messageContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
