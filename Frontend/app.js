@@ -1,7 +1,7 @@
 let currentUser = null;
 let users = [];
 
-// Utility: show message
+// show message
 function showMessage(message, type = 'success') {
     const messageContainer = document.getElementById('messageContainer');
     const messageElement = document.createElement('div');
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Initialize default view / session
+
     restoreSession().then(() => {
         if (!currentUser) showPage('loginPage');
     });
